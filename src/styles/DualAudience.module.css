@@ -1,0 +1,129 @@
+/* src/components/DualAudience.module.css */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.centerText {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.centerText h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.centerText p {
+  color: var(--text-muted);
+}
+
+.tabWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.tabContainer {
+  background: #f1f5f9;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  display: flex;
+  border: 1px solid var(--border-color);
+}
+
+.tabButton {
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.activeTab {
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  background: var(--bg-card);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-color);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+.contentPane h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.contentPane p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+/* Console Graphic styling */
+.console {
+  background: #0f172a;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: #f8fafc;
+  font-family: monospace;
+  font-size: 0.75rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.consoleHeader {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  color: #64748b;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dotRed { background: #ef4444; }
+.dotYellow { background: #f59e0b; }
+.dotGreen { background: #10b981; }
+
+.codeBlock {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+.comment { color: #6366f1; }
+.string { color: #34d399; }
