@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-export const Hero = lazy(() => import('../components/hook/Hero').then((m) => ({ default: m.Hero })));
+export const Hero = lazy(() => import('../hooks/useHero'));
 export const Workspace = lazy(() => import('../components/Workspace'));
 export const DualAudience = lazy(() => import('../components/DualAudience'));
 export const ErrorPage = lazy(() => import('../components/errorhandling/ErrorPage'));
@@ -13,6 +13,6 @@ export const LandingNav = lazy(() => import('../components/landing/LandingNav'))
 export const LandingStats = lazy(() => import('../components/landing/LandingStats'));
 export const LandingTestimonials = lazy(() => import('../components/landing/LandingTestimonials'));
 export const Landing = lazy(() => import('../pages/Landing'));
+export const AuthPage = lazy(() => import('../pages/AuthPage'));
 export const ResearcherMarketplace = lazy(() => import('../pages/ResearcherMarketplace'));
 export const CommissionerControlCenter = lazy(() => import('../pages/CommissionerControlCenter'));
-

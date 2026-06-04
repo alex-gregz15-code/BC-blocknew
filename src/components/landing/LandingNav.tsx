@@ -1,23 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface LandingNavProps {
-  scrolled: boolean;
+  scrolled?: boolean;
 }
 
 const LandingNav: React.FC<LandingNavProps> = ({ scrolled }) => {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
   return (
     <nav style={scrolled ? { background: 'rgba(13,17,23,0.95)' } : {}}>
-      <div className="nav-logo">
+      <Link className="nav-logo" to="/">
         <span className="nav-dot" />
         Commission<span>R</span>
-      </div>
+      </Link>
       <ul className="nav-links">
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#stories">Stories</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><button type="button" onClick={() => scrollToSection('how')}>How it works</button></li>
+        <li><button type="button" onClick={() => scrollToSection('features')}>Features</button></li>
+        <li><button type="button" onClick={() => scrollToSection('stories')}>Stories</button></li>
+        <li><button type="button" onClick={() => scrollToSection('pricing')}>Pricing</button></li>
       </ul>
-      <button className="nav-cta">Get Early Access</button>
+      <button className="nav-cta" type="button" onClick={() => scrollToSection('pricing')}>
+        Get Early Access
+      </button>
     </nav>
   );
 };

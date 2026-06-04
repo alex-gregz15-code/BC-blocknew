@@ -14,7 +14,7 @@ const LandingCTA: React.FC = () => {
           type="button"
           className="hero-btn primary"
           style={{ opacity: 1, animation: 'none' }}
-          onClick={() => navigate('/workspace/researcher')}
+          onClick={() => navigate('/auth/researcher')}
         >
           Join as Researcher
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -25,7 +25,7 @@ const LandingCTA: React.FC = () => {
           type="button"
           className="hero-btn secondary"
           style={{ opacity: 1, animation: 'none' }}
-          onClick={() => navigate('/workspace/commissioner')}
+          onClick={() => navigate('/auth/commissioner')}
         >
           Post a Brief
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

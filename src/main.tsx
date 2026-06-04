@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import './styles/global.css';
-import AppRoutes from './routers/AppRoutes';
+import AppRoutes from "./routes/AppRoutes"; 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

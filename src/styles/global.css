@@ -88,15 +88,22 @@ nav {
   gap: 36px;
   list-style: none;
 }
-.nav-links a {
-  color: var(--muted);
+.nav-logo {
   text-decoration: none;
+}
+.nav-links button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0.04em;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--cream); }
+.nav-links button:hover { color: var(--cream); }
 .nav-cta {
   background: transparent;
   border: 1px solid var(--gold);
@@ -300,6 +307,7 @@ nav {
 }
 section {
   padding: 100px 80px;
+  scroll-margin-top: 110px;
 }
 .section-label {
   font-family: var(--font-mono);
@@ -865,6 +873,84 @@ footer {
   color: var(--text-main);
   border-radius: 1rem;
   padding: 1rem 1.25rem;
+}
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 96px 24px;
+  background:
+    linear-gradient(135deg, rgba(79,70,229,0.14), transparent 42%),
+    linear-gradient(225deg, rgba(124,58,237,0.12), transparent 42%),
+    var(--navy);
+}
+.auth-brand {
+  position: fixed;
+  top: 28px;
+  left: 40px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.auth-brand span { color: var(--cream); }
+.auth-panel {
+  width: min(100%, 520px);
+  padding: 40px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(79,70,229,0.14);
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(15,23,42,0.12);
+}
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin: 32px 0 24px;
+  background: var(--navy-light);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+.auth-tabs button {
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+}
+.auth-tabs button.active {
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: 0 1px 8px rgba(15,23,42,0.08);
+}
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+.auth-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--text-main);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.auth-form input {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 13px 14px;
+  color: var(--text-main);
+  font: inherit;
+}
+.auth-form .hero-btn {
+  justify-content: center;
+  width: 100%;
+  margin-top: 8px;
 }
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }

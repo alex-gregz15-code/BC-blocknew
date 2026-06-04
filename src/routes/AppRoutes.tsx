@@ -8,6 +8,7 @@ import {
   ErrorPage,
   NotFound,
   Landing,
+  AuthPage,
   ResearcherMarketplace,
   CommissionerControlCenter,
 } from './LazyCodeComponents';
@@ -21,8 +22,9 @@ const AppRoutes = () => {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
-        <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
-          <Route index element={<HomePage />} />
+        <Route path="/" element={<HomePage />} errorElement={<ErrorPage />} />
+        <Route path="/auth/:role" element={<AuthPage />} errorElement={<ErrorPage />} />
+        <Route element={<Layout />} errorElement={<ErrorPage />}>
           <Route path="researcher" element={<ResearcherMarketplace />} />
           <Route path="commissioner" element={<CommissionerControlCenter />} />
           <Route
@@ -33,8 +35,8 @@ const AppRoutes = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

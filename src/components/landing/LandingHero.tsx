@@ -19,7 +19,7 @@ const LandingHero: React.FC = () => {
         <button
           type="button"
           className="hero-btn primary"
-          onClick={() => navigate('/researcher')}
+          onClick={() => navigate('/auth/researcher')}
         >
           Apply as Researcher
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -40,7 +40,7 @@ const LandingHero: React.FC = () => {
         <button
           type="button"
           className="hero-btn secondary"
-          onClick={() => navigate('/commissioner')}
+          onClick={() => navigate('/auth/commissioner')}
         >
           Post a Research Brief
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
