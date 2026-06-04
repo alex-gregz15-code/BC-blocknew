@@ -1,0 +1,75 @@
+/* Footer.module.css */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 3rem 2rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+.desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.links li {
+  margin-bottom: 0.75rem;
+}
+
+.links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: var(--primary);
+}
+
+.grid h4 {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.bottomBar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.bottomBar p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}

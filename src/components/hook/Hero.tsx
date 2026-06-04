@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Building2, GraduationCap, ArrowRight } from 'lucide-react';
-import styles from '../styles/Hero.module.css';
+import styles from '../../styles/Hero.module.css';
 
 export const Hero: React.FC = () => {
   return (

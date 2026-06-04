@@ -1,7 +1,7 @@
-// src/components/Footer.tsx
+// src/components/layouts/Footer.tsx
 import React from 'react';
 import { Layers } from 'lucide-react';
-import styles from './Footer.module.css';
+import styles from '../../styles/Footer.module.css';
 
 export const Footer: React.FC = () => {
   return (

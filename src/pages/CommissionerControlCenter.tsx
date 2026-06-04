@@ -33,7 +33,7 @@ const SAMPLE_BRIEFS: BriefItem[] = [
   { id: 'b3', title: 'Secure Medical Data Mesh', budget: '$120k', progress: '9 Active', status: 'Live', timeline: '8 Months' },
 ];
 
-export default function CommissionerControlCenter() {
+function CommissionerControlCenter() {
   const navigate = useNavigate();
   const [published, setPublished] = useState(false);
   const [selectedBrief, setSelectedBrief] = useState<BriefItem>(SAMPLE_BRIEFS[0]);
@@ -160,3 +160,5 @@ export default function CommissionerControlCenter() {
     </div>
   );
 }
+
+export default CommissionerControlCenter;

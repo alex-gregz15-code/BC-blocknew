@@ -1,9 +1,9 @@
 // src/components/Contact.tsx
 import React, { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
-import styles from './Contact.module.css';
+import styles from '../styles/Contact.module.css';
 
-export const Contact: React.FC = () => {
+const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -44,3 +44,5 @@ export const Contact: React.FC = () => {
     </section>
   );
 };
+
+export default Contact;

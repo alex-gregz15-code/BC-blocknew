@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ShieldCheck, Users, Zap, Terminal } from 'lucide-react';
 import styles from '../styles/DualAudience.module.css';
 
-export const DualAudience: React.FC = () => {
+const DualAudience: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'commissioner' | 'researcher'>('commissioner');
 
   return (
@@ -74,3 +74,5 @@ export const DualAudience: React.FC = () => {
     </section>
   );
 };
+
+export default DualAudience;

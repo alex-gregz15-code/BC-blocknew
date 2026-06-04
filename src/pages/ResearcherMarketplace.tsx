@@ -72,7 +72,7 @@ const CATEGORIES = ['AI Systems', 'Materials Science', 'Cryptography', 'Bioengin
 const DIFFICULTY = ['Intermediate', 'Advanced', 'Expert'];
 const BUDGETS = ['<$100k', '$100k-$150k', '$150k+'];
 
-export default function ResearcherMarketplace() {
+function ResearcherMarketplace() {
   const navigate = useNavigate();
   const [selectedOpportunity, setSelectedOpportunity] = useState<ProjectCard>(OPPORTUNITIES[0]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -253,3 +253,5 @@ n              <ArrowRight size={16} />
     </div>
   );
 }
+
+export default ResearcherMarketplace;
