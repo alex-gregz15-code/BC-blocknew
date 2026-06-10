@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Layout } from "../components/layouts/Layout";
+import { useCampaigns } from "../hooks/useCampaigns";
 import styles from "../styles/CommissionerControlCenter.module.css";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-interface Campaign {
+interface CampaignView {
   id: string;
   title: string;
   status: "active" | "pending" | "completed" | "draft";
@@ -24,49 +25,6 @@ interface StatCard {
 
 // ─── Mock Data ─────────────────────────────────────────────────────────────────
 
-const MOCK_CAMPAIGNS: Campaign[] = [
-  {
-    id: "c1",
-    title: "DeFi Protocol Security Audit",
-    status: "active",
-    budget: 12000,
-    spent: 4500,
-    applicants: 8,
-    deadline: "2025-08-15",
-    category: "Security",
-  },
-  {
-    id: "c2",
-    title: "Smart Contract Vulnerability Report",
-    status: "pending",
-    budget: 7500,
-    spent: 0,
-    applicants: 3,
-    deadline: "2025-09-01",
-    category: "Smart Contracts",
-  },
-  {
-    id: "c3",
-    title: "Layer 2 Bridge Analysis",
-    status: "completed",
-    budget: 9000,
-    spent: 9000,
-    applicants: 12,
-    deadline: "2025-07-01",
-    category: "Infrastructure",
-  },
-  {
-    id: "c4",
-    title: "NFT Marketplace Exploit Research",
-    status: "draft",
-    budget: 5000,
-    spent: 0,
-    applicants: 0,
-    deadline: "2025-10-20",
-    category: "NFT",
-  },
-];
-
 const STATS: StatCard[] = [
   { label: "Active Campaigns", value: 4, delta: "+2 this month", positive: true },
   { label: "Total Budget Allocated", value: "$33,500", delta: "+$8k vs last quarter", positive: true },
@@ -74,11 +32,11 @@ const STATS: StatCard[] = [
   { label: "Avg. Resolution Time", value: "12 days", delta: "-3 days", positive: true },
 ];
 
-type FilterStatus = "all" | Campaign["status"];
+type FilterStatus = "all" | CampaignView["status"];
 
 // ─── Sub-components ────────────────────────────────────────────────────────────
 
-const StatusBadge = ({ status }: { status: Campaign["status"] }) => (
+const StatusBadge = ({ status }: { status: CampaignView["status"] }) => (
   <span className={`${styles.badge} ${styles[`badge_${status}`]}`}>
     {status.charAt(0).toUpperCase() + status.slice(1)}
   </span>
@@ -97,10 +55,22 @@ const BudgetBar = ({ spent, budget }: { spent: number; budget: number }) => {
 // ─── Main Component ────────────────────────────────────────────────────────────
 
 const CommissionerControlCenter = () => {
+  const { campaigns, loading, error, refetch } = useCampaigns();
   const [filter, setFilter] = useState<FilterStatus>("all");
   const [search, setSearch] = useState("");
 
-  const filtered = MOCK_CAMPAIGNS.filter((c) => {
+  const campaignRows: CampaignView[] = campaigns.map((campaign) => ({
+    id: campaign.id,
+    title: campaign.title,
+    status: campaign.status,
+    budget: campaign.budget,
+    spent: campaign.spent ?? 0,
+    applicants: campaign.applicants ?? 0,
+    deadline: campaign.deadline ?? "",
+    category: campaign.category,
+  }));
+
+  const filtered = campaignRows.filter((c) => {
     const matchesFilter = filter === "all" || c.status === filter;
     const matchesSearch =
       c.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -167,7 +137,18 @@ const CommissionerControlCenter = () => {
             </div>
           </div>
 
-          {filtered.length === 0 ? (
+          {loading ? (
+            <div className={styles.emptyState}>
+              <p>Loading campaigns...</p>
+            </div>
+          ) : error ? (
+            <div className={styles.emptyState}>
+              <p>{error}</p>
+              <button onClick={refetch} className={styles.btnSecondary}>
+                Retry
+              </button>
+            </div>
+          ) : filtered.length === 0 ? (
             <div className={styles.emptyState}>
               <p>No campaigns match your search.</p>
             </div>
@@ -202,7 +183,11 @@ const CommissionerControlCenter = () => {
                   <span className={styles.centered} role="cell">
                     {campaign.applicants}
                   </span>
-                  <span role="cell">{new Date(campaign.deadline).toLocaleDateString()}</span>
+                  <span role="cell">
+                    {campaign.deadline
+                      ? new Date(campaign.deadline).toLocaleDateString()
+                      : "No deadline"}
+                  </span>
                   <div className={styles.actions} role="cell">
                     <button className={styles.btnSecondary} aria-label={`View ${campaign.title}`}>
                       View
